@@ -15,13 +15,13 @@ func NewHandler() *Handler {
 }
 
 func (h *Handler) RegisterRoutes(router *mux.Router) {
-	router.HandleFunc("/hello", h.handleHello).Methods("GET")
+	router.HandleFunc("", h.handleIndex).Methods("GET")
 	router.HandleFunc("/login", h.handleLogin).Methods("POST")
 	router.HandleFunc("/register", h.handleRegister).Methods("POST")
 }
 
-func (h *Handler) handleHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello mukxdev")
+func (h *Handler) handleIndex(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, This is mukxdev server!")
 }
 func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
 
